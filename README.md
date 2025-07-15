@@ -75,6 +75,18 @@
 
  Сервисы будут доступны в контейнерах, мониторинг — через Prometheus и Grafana.
 
+Доступ к сервисам и метрикам
+
+1) Kafka: localhost:9092
+
+2) Kafka UI: localhost:8080
+
+3) Redis: localhost:6379
+
+4) Prometheus: http://localhost:9090
+
+5) Grafana: http://localhost:3000
+
 ## Конфигурация
 
 - Все сервисы используют свои YAML-файлы для локальной конфигурации.

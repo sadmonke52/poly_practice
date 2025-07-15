@@ -1,0 +1,48 @@
+env: "local"
+
+http_server:
+  address: "localhost:8080"
+  timeout: 5s
+  idle_timeout: 60s
+
+kafka:
+  brokers:
+   # - "localhost:9092"
+    - "kafka:29092"
+  topics:
+    - "test-topic"  # Названия топиков не несут смысла
+    - "user-events"
+    - "payment-events"
+    - "analytics-events"
+    - "inventory-events"
+    - "order-events"
+    - "shipping-events"
+    - "notification-events"
+    - "audit-events"
+    - "mymetrics-events"
+  groupid: "0"
+  clientid: "my-service-1"
+  #worker-count:  потом добавить
+  reader-instance: 12
+  buffer-channel-size: 100
+
+producer:
+  brokers:
+    - "kafka:29092"
+  topics:
+    - "collector.aggregated-events"
+    - "collector.user-stats"
+    - "collector.daily-summary"
+ # workers: 100000000000000000
+  #producer-instance: 5 конкурентная запись в бд потом добавить
+  interval: "4s"
+
+logging:
+  level: "info"
+  format: "json"
+  output: "stdout"
+
+
+
+
+

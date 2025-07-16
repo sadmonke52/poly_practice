@@ -1,0 +1,29 @@
+http_server:
+  address: "localhost:8080"
+  timeout: 5s
+  idle_timeout: 60s
+
+kafka:
+  brokers:
+    - "kafka:29092"
+  topics:
+    - "collector.aggregated-events"
+    - "collector.user-stats"
+    - "collector.daily-summary"
+  groupid: "1"
+  clientid: "my-service-1"
+  #worker-count: 12 нету
+  reader-instance: 50  # 16
+  buffer-channel-size: 100  # 1000
+
+logging:
+  level: "info"
+  format: "json"
+  output: "stdout"
+
+aggregator:
+  aggregationwindow: 4s
+
+redis:
+  address: "redis2:6379"
+  db: 0

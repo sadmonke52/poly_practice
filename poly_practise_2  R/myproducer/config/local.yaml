@@ -1,0 +1,24 @@
+producer:
+  brokers:
+    - "kafka:29092"
+  topics:
+  - "test-topic"  # Названия топиков не несут смысла
+  - "user-events"
+  - "payment-events"
+  - "analytics-events"
+  - "inventory-events"
+  - "order-events"
+  - "shipping-events"
+  - "notification-events"
+  - "audit-events"
+  - "mymetrics-events"
+  usercount: 15
+  messagecount: 1000000 # на каждый instance
+  throughput: 100000 #(1sec/throughput)
+  workers: 50
+  producer-instance: 50
+
+logging:
+  level: "info"
+  format: "json"
+  output: "stdout"

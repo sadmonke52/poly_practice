@@ -1,0 +1,63 @@
+env: "local"
+storage_path: "/storage"
+
+kafka:
+  broker:
+  - "localhost:9094"
+  brokers:
+    - "localhost:9094"
+  topic: "test-topic"
+  topics:
+  - "test-topic"
+  - "user-events"
+  - "payment-events"
+  - "analytics-events"
+  - "inventory-events"
+  - "order-events"
+  - "shipping-events"
+  - "notification-events"
+  - "audit-events"
+  - "metrics-events"
+  groupid: "0"
+  clientid: "my-service-1"
+  worker-count: 12
+  reader-count: 10
+
+redis_database:
+  address: "localhost:6379"
+  password: "poly_practice_1"
+  db: 0
+
+logging:
+  level: "info"
+  format: "json"
+  output: "stdout"
+
+producer:
+  brokers:
+    - "localhost:9094"
+  topics:
+  - "test-topic"
+  - "user-events"
+  - "payment-events"
+  - "analytics-events"
+  - "inventory-events"
+  - "order-events"
+  - "shipping-events"
+  - "notification-events"
+  - "audit-events"
+  - "metrics-events"
+  usercount: 100
+  messagecount: 100000  # на один инстанс
+  throughput: 10000
+  workers: 50
+
+aggregator:
+  flush-interval: "4s" # ЧЕКНУТЬ
+  batch-size: 250
+
+instances:
+  producer_count: 50  # instance продюсера очень хорошо нагружают GC как и instance консюмера
+  consumer_count: 50
+
+
